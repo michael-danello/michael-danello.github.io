@@ -1,0 +1,20 @@
+---
+layout: default
+title: NextStep
+---
+<h1> NextStep [in progress] </h1>
+
+<p>
+  Your dream job is not necessarily on the market. Historical data can be useful in a) finding companies you would join if they had open positions 
+  and b) understanding the requirements of those jobs. NextStep provides both by displaying expired job listings.
+</p>
+<p>
+  Job data is sourced from Indeed. A web crawler scheduled via celery grabs job pages. BeautifulSoup parses these pages inserts the listings into a 
+  postgres DB. 
+</p>
+<p>
+  Once a listing is no longer available, a Django application serves the postings on the React front-end with search is powered by eleastic. 
+</p>
+<p>
+  I'm currently actively working on NextStep
+</p>

@@ -1,0 +1,31 @@
+---
+layout: default
+title: iMessageWrapped
+---
+<h1> iMessageWrapped</h1>
+<p>
+  iMessageWrapped was inspired by Spotify's Wrapped feature which allows users to visualize and analyze their listening 
+  patterns over the previous year. I wanted to give the same view into texting patterns, analyzing the results of who/how/when/where people had texted.
+
+<p>
+  iMessages and Contacts are stored in a local SQLite database on OSX systems. With user permission, the application accesses both. Contacts have an additional hitch: a user may mantain multiple 
+  local contact DBs on the same machine (because, for instance they have imported contacts from multiple devices). As a result, iMessageWrapped loops through all available contact databases, generating 
+  a unique list of contacts. 
+</p>
+<p>
+  Once connected to the DBs, the application runs queries for the who, what, where, and why sections. Some of my favorite queries were: average time 
+  of first text sent during the day, person contacted most after midnight, and top texts by contact. On the frontend, simple visualizations are rendered by passing the 
+  the results of these queries directly in a Jinja template. For more complex visualizations (such as texting by time of day or week), I used chart.js and leaflet, which 
+  call internal API routes to populate the visualizaitons.
+</p>
+<p>
+  Using nltk, I wrote and trained bigram and trigram models to extract the most frequently used phrases in text conversations. Unfortunately, these 
+  increased the distribution size of the application by nearly 200mb and I ultimately decided to scrap them and just include data around the most common usages for figures of speech.
+</p>
+<p>
+  iMessageWrapped was distributed with pyinstaller. 
+</p>
+<p>
+  Check out the <a href = "https://github.com/michael-danello/iMessageWrapped"> code </a>  here or the release repo <a href = "https://github.com/michael-danello/iMessageWrappedRelease"> here</a> 
+</p>
+ 
